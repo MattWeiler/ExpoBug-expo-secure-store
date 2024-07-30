@@ -14,10 +14,11 @@ export const App = () => {
             'someKey',
             {
                 authenticationPrompt: 'Load it?',
-                // BUG: This is not being honored, with or without the
-                //      "authenticationPrompt" being set.
-                //      But if no key is present, then the user is not
-                //      prompted.
+                // BUG?:    Regardless of if the "authenticationPrompt" is set,
+                //          the user is always prompted if the specified key is
+                //          present.
+                //          But if the specified key is not present, then the
+                //          user is not prompted.
                 requireAuthentication: false,
             }
         ));
@@ -41,9 +42,9 @@ export const App = () => {
             'someKey',
             {
                 authenticationPrompt: 'Delete it?',
-                // BUG: This is not being honored as the user is not being
-                //      prompted to provide their biometric data but the key
-                //      is still being deleted.
+                // BUG:     This is not being honored as the user is not being
+                //          prompted to provide their biometric data but the key
+                //          is still being deleted.
                 requireAuthentication: true,
             }
         );
